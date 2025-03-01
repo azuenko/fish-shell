@@ -2760,11 +2760,24 @@ impl<'a> Reader<'a> {
                     if self.current_page_rendering.remaining_to_disclose != 0 {
                         self.pager.set_fully_disclosed();
                     } else {
+                        let cycle_backwards = self.vars().get(L!("fish_complete_cycle_backwards"))
+                            .map(|v| v.as_string())
+                            .map(|v| v != L!("0"))
+                            .unwrap_or(false);
+
                         self.select_completion_in_direction(
-                            if c == rl::Complete {
-                                SelectionMotion::Next
+                            if cycle_backwards {
+                                if c == rl::Complete {
+                                    SelectionMotion::Prev
+                                } else {
+                                    SelectionMotion::Next
+                                }
                             } else {
-                                SelectionMotion::Prev
+                                if c == rl::Complete {
+                                    SelectionMotion::Next
+                                } else {
+                                    SelectionMotion::Prev
+                                }
                             },
                             false,
                         );

@@ -40,7 +40,7 @@ Tab Completion
 
 Tab completion is a time saving feature of any modern shell. When you type :kbd:`tab`, fish tries to guess the rest of the word under the cursor. If it finds just one possibility, it inserts it. If it finds more, it inserts the longest unambiguous part and then opens a menu (the "pager") that you can navigate to find what you're looking for.
 
-The pager can be navigated with the arrow keys, :kbd:`pageup` / :kbd:`pagedown`, :kbd:`tab` or :kbd:`shift-tab`. Pressing :kbd:`ctrl-s` (the ``pager-toggle-search`` binding - :kbd:`/` in vi mode) opens up a search menu that you can use to filter the list.
+The pager can be navigated with the arrow keys, :kbd:`pageup` / :kbd:`pagedown`, :kbd:`tab` or :kbd:`shift-tab`. By default, :kbd:`tab` cycles forward through completions, and :kbd:`shift-tab` cycles backward. You can reverse this behavior by setting the ``fish_complete_cycle_backwards`` variable to a non-zero value. Pressing :kbd:`ctrl-s` (the ``pager-toggle-search`` binding - :kbd:`/` in vi mode) opens up a search menu that you can use to filter the list.
 
 Fish provides some general purpose completions, like for commands, variable names, usernames or files.
 

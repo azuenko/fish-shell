@@ -31,6 +31,7 @@ New or improved bindings
 
 Completions
 ^^^^^^^^^^^
+- Added ``fish_complete_cycle_backwards`` variable that reverses the direction of TAB completion cycling. When set, TAB cycles backwards through completions, and Shift+TAB cycles forwards.
 
 Improved terminal support
 ^^^^^^^^^^^^^^^^^^^^^^^^^
